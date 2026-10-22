@@ -17,7 +17,7 @@ pip install -r requirements.txt
 ## Test LetsFG directly first
 
 ```bash
-letsfg search BER MAA 2026-07-30 --mode fast
+letsfg search BER MAA 2026-12-15 --mode fast
 ```
 
 If that works, run the Python app.
@@ -25,19 +25,19 @@ If that works, run the Python app.
 ## Run the app
 
 ```bash
-python app.py --from BER --to MAA --date 2026-07-30 --range 1
+python app.py --from BER --to MAA --date 2026-12-15 --range 1
 ```
 
 Search more nearby dates:
 
 ```bash
-python app.py --from BER --to MAA --date 2026-07-30 --range 3
+python app.py --from BER --to MAA --date 2026-12-15 --range 3
 ```
 
 Use full mode:
 
 ```bash
-python app.py --from BER --to MAA --date 2026-07-30 --range 1 --mode full
+python app.py --from BER --to MAA --date 2026-12-15 --range 1 --mode full
 ```
 
 ## Important
@@ -74,5 +74,11 @@ cheap-flight-finder-free-api/
 ## Example
 
 ```bash
-python app.py --from BER --to DEL --date 2026-08-01 --range 2
+python app.py --from BER --to DEL --date 2026-12-18 --range 2
 ```
+
+## Testing and caveats
+
+Run offline date-window tests with `python -m unittest discover -s tests -v`. GitHub Actions runs these tests and checks syntax without searching for flights.
+
+The CLI relies on a working local LetsFG installation. CI does **not** verify live prices, provider availability, or that any displayed fare can actually be booked.
